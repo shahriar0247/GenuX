@@ -1,4 +1,4 @@
-#inheriting stuf
+# Inheriting stuff
 
 import speech_recognition as sr
 import os
@@ -7,64 +7,63 @@ import subprocess
 
 
 
-#making r meaningful
+# Making r meaningful
 
 r = sr.Recognizer()
 
-#getting the microphone and printing "Say Something" after getting it
+# Getting the microphone and printing "Say Something" after getting it
 
 with sr.Microphone() as source:
     print("Say Something")
-    #making audio the thing we said (in sound)
+    # Making audio the thing we said (in sound)
     audio = r.listen(source)
 
-#makind said the thing we said (in text)
+# Making said the thing we said (in text)
 
 said = r.recognize_google(audio)
 said = said.lower()
 
-#what will happen if said is a certain thing 
+# What happens if the user said something:
 print("You have said " + said)
 
 
-#if else stuff
+# Voice commands
 constantsaid = said 
-if "open computer" in said or "open this pc" in said or "open my computer" in said:
+if "open computer" in said or "open this pc" in said or "open my computer" in said:     # Opens computer
     print("Open Computer command executed")
     os.system("explorer ::{20D04FE0-3AEA-1069-A2D8-08002B30309D}")
     
 
-if "open documents" in said or "open document" in said or "open my document" in said or "open my documents" in said:
+if "open documents" in said or "open document" in said or "open my document" in said or "open my documents" in said:     # Opens documents folder
     print("Open Documents command executed")
-
     os.system("explorer shell:document")  
 
-if "open download" in said or "open downloads" in said or "open my download" in said or "open my downloads" in said:
+if "open download" in said or "open downloads" in said or "open my download" in said or "open my downloads" in said:    # Opens downloads folder
     print("Open Downloads command executed")
     os.system("explorer shell:downloads")
 
-if "open desktop" in said:
+if "open desktop" in said:      # Opens Desktop
     print("Open Desktop command executed")
     os.system("explorer shell:Desktop")
 
-if "open music" in said or "open my music" in said:
+if "open music" in said or "open my music" in said:     # Opens music folder
     print("Open Music command executed")
     os.system("explorer shell:Music")
 
-if "open video" in said or "open my video" in said or "open videos" in said or "open my videos" in said:
+if "open video" in said or "open my video" in said or "open videos" in said or "open my videos" in said:    # Opens video folder
     print("Open Video command executed")
     os.system("explorer shell:Video")
 
-if "open chrome" in said or "open google chrome" in said:
+if "open chrome" in said or "open google chrome" in said:       # Opens Chrome browser
     print("Open Google Chrome command executed")
     os.system("start chrome")
 
-if "open firefox" in said or "open mozilla firefox" in said:
+if "open firefox" in said or "open mozilla firefox" in said:    # Opens Firefox browser
     print("Open Mozilla Firefox command executed")
     os.system("start firefox")
 
-if "open control panal" in said:
-    print("Open Control Panal command executed")
+if "open control panel" in said:        # Opens Windows control panel
+    print("Open Control Panel command executed")
     os.system("")
 
 if "open" in said:
@@ -97,6 +96,5 @@ if "open" in said:
             os.system(said[i])
         i = i + 1
 
-#except:
+# Except (exit)
 print("Program exited sucessfully")
-    
